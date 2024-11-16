@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menú de Comidas Rápidas</title>
+    <link rel="stylesheet" href="../style/doc.css" />
+  </head>
+  <body>
+    <h1>Menú de Comidas Rápidas</h1>
+    <p>
+      Selecciona tus opciones del menú. Ingresa el número correspondiente para
+      hacer un pedido.
+    </p>
+    <button id="startOrder">Hacer Pedido</button>
+    <div id="output" class="result"></div>
+
+    <script>
+      document
+        .getElementById("startOrder")
+        .addEventListener("click", function () {
+          const menu = {
+            1: { item: "Hamburguesa", precio: 5 },
+            2: { item: "Papas Fritas", precio: 3 },
+            3: { item: "Refresco", precio: 2 },
+            4: { item: "Helado", precio: 4 },
+          };
+          let total = 0;
+          let opcion;
+
+          do {
+            opcion = prompt(`Menú de Comidas Rápidas:\n
+          1. Hamburguesa - $5000
+          2. Papas Fritas - $3000
+          3. Refresco - $2000
+          4. Helado - $4000
+          5. Finalizar Pedido\n
+          Ingresa el número de tu elección:`);
+
+            if (menu[opcion]) {
+              total += menu[opcion].precio;
+              alert(
+                `Has añadido una ${menu[opcion].item} por $${menu[opcion].precio}.`
+              );
+            } else if (opcion !== "5") {
+              alert(
+                "Opción no válida. Por favor, selecciona una opción del menú."
+              );
+            }
+          } while (opcion !== "5");
+
+          document.getElementById("output").innerText = `
+        Total a pagar: $${total}\n
+        ¡Gracias por tu pedido! Que tengas un buen día.
+      `;
+        });
+    </script>
+  </body>
+</html>
