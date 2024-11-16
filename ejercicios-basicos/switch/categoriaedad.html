@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CATEGORIAS DE EDAD</title>
+  </head>
+  <body>
+    <script>
+      alert(
+        "BIENVENIDO AL PROGRAMA QUE VALIDA A QUÉ CATEGORÍA CORRESPONDES DEPENDIENDO DE TU EDAD"
+      );
+
+      let edad = parseInt(prompt("Ingresa tu edad: "));
+
+      switch (true) {
+        case edad >= 0 && edad <= 9:
+          console.log("Edad ingresada corresponde a la categoría: NIÑO");
+          break;
+        case edad >= 10 && edad <= 19:
+          console.log("Edad ingresada corresponde a la categoría: ADOLESCENTE");
+          break;
+        case edad >= 20 && edad <= 59:
+          console.log("Edad ingresada corresponde a la categoría: ADULTO");
+          break;
+        case edad >= 60 && edad <= 100:
+          console.log(
+            "Edad ingresada corresponde a la categoría: ADULTO MAYOR"
+          );
+          break;
+        default:
+          console.log("EL NÚMERO INGRESADO NO ES VÁLIDO");
+          break;
+      }
+    </script>
+  </body>
+</html>

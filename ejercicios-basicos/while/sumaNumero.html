@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suma de Números Pares e Impares</title>
+    <link rel="stylesheet" href="../style/doc.css" />
+  </head>
+  <body>
+    <h1>Suma de Números Pares e Impares</h1>
+    <form id="numero">
+      <label for="number">Ingresa un número entero positivo:</label>
+      <input type="number" id="number" min="1" required />
+      <button type="submit">Calcular</button>
+    </form>
+    <div id="output" class="result"></div>
+
+    <script>
+      document
+        .getElementById("numero")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Evitar recargar la página
+
+          const num = parseInt(document.getElementById("number").value);
+          let sumaPares = 0;
+          let sumaImpares = 0;
+
+          if (num > 0) {
+            let i = 1;
+            while (i <= num) {
+              if (i % 2 === 0) {
+                sumaPares += i;
+              } else {
+                sumaImpares += i;
+              }
+              i++;
+            }
+
+            document.getElementById("output").innerHTML = `
+          La suma de los números pares es: ${sumaPares}<br>
+          La suma de los números impares es: ${sumaImpares}
+        `;
+          } else {
+            document.getElementById("output").innerText =
+              "Por favor, ingresa un número positivo.";
+          }
+        });
+    </script>
+  </body>
+</html>

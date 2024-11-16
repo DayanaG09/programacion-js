@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cajero Automtico</title>
+  </head>
+  <body>
+    <script>
+      let saldoDisponible = 5000;
+      let seguir = true;
+
+      while (seguir) {
+        alert("BIENVENIDO AL CAJERO AUTOMATICO💵💲");
+        // se le muestra al usuario el saldo que tiene en la cuenta
+        alert(`💲💵Saldo disponible: $${saldoDisponible}`);
+
+        let monto = parseFloat(prompt("Ingrese el monto que desea retirar:"));
+
+        if (isNaN(monto) || monto <= 0) {
+          console.log("Por favor, ingrese un monto válido.");
+        } else if (monto > saldoDisponible) {
+          console.log("Error: El monto ingresado excede el saldo disponible.");
+        } else {
+          saldoDisponible -= monto;
+          alert(`Retiro exitoso. Su nuevo saldo es: $${saldoDisponible}`);
+        }
+
+        let respuesta = prompt(
+          "¿Desea realizar otra operación? (sí/no)"
+        ).toLowerCase();
+        if (respuesta === "no") {
+          seguir = false;
+          alert("Gracias por usar el cajero automático. Hasta luego.");
+        } else if (respuesta !== "si") {
+          alert("Respuesta no válida. Se asumirá que no desea continuar.");
+          seguir = false;
+        }
+      }
+    </script>
+  </body>
+</html>

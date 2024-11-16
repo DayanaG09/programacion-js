@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  h1 {
+    color: #2e76da;
+  }
+  .result {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  form {
+    margin-bottom: 20px;
+  }

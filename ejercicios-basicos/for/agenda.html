@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda de Contactos</title>
+    <script>
+      let contactos = [];
+
+      function agregarContacto() {
+        const nombre = document.getElementById("nombre").value;
+        const telefono = document.getElementById("telefono").value;
+
+        contactos.push({
+          nombre: nombre,
+          telefono: telefono,
+        });
+
+        document.getElementById("nombre").value = "";
+        document.getElementById("telefono").value = "";
+      }
+
+      function mostrarContactos() {
+        let listaContactos = "";
+
+        for (let i = 0; i < contactos.length; i++) {
+          listaContactos +=
+            i +
+            1 +
+            ". Nombre: " +
+            contactos[i].nombre +
+            ", Teléfono: " +
+            contactos[i].telefono +
+            "<br>";
+        }
+
+        document.getElementById("listaContactos").innerHTML = listaContactos;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Agenda de Contactos</h1>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" placeholder="Ej: Juan Pérez" /><br /><br />
+
+    <label for="telefono">Teléfono:</label>
+    <input
+      type="tel"
+      id="telefono"
+      placeholder="Ej: 123-456-7890"
+    /><br /><br />
+
+    <button onclick="agregarContacto()">Agregar Contacto</button>
+
+    <button onclick="mostrarContactos()">Mostrar Contactos</button>
+
+    <h2>Contactos Registrados</h2>
+
+    <div id="listaContactos"></div>
+  </body>
+</html>
