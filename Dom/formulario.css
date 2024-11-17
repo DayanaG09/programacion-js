@@ -1,0 +1,28 @@
+.error {
+    color: red;
+    margin-top: 5px;
+  }
+  .success {
+    color: green;
+    margin-top: 5px;
+  }
+  .container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 3.5px solid #eef67f;
+    border-radius: 5px;
+  }
+  input {
+    display: block;
+    margin: 10px 0;
+    padding: 5px;
+    width: 100%;
+  }
+
+  .btn-primary{
+    color: rgb(0, 0, 0);
+    background-color: rgb(246, 244, 124);
+    border: 3.5px solid #efff0e;;
+    border-radius: 5px;
+  }
