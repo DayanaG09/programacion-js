@@ -1,0 +1,44 @@
+
+.highlight {
+  background-color: #cbe7ca(251, 118, 167);
+}
+
+
+.result-container {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; 
+}
+
+th, td , h1 {
+  border: 1px solid #dee2e6; /* Bordes sutiles */
+  padding: 8px; /* Espaciado dentro de las celdas */
+  text-align: center; 
+  color: black;
+}
+
+thead {
+  background-color: #badfb8;
+  color: white; 
+}
+
+
+tr:nth-child(even) {
+  background-color: #f8f9fa; 
+}
+
+
+#searchInput {
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  margin-right: 10px;
+}
+
+#searchBtn {
+  border-radius: 0.25rem;
+  padding: 0.375rem 1rem;
+}
