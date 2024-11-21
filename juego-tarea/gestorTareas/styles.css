@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+input,
+button {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    width: 300px;
+}
+
+li {
+    background-color: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete-btn {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dice-button:hover {
+    background-color: #40dca1;
+    transform: scale(1.1);
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+    background-color: #f0f0f0;
+}
+
+
+.important {
+    background-color: #f9e2ae; 
+    border: 1px solid gold;
+}
+
+
+.mark-important {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: gold;
+    cursor: pointer;
+}
+
+.mark-important:hover {
+    color: orange;
+}
+
+  
