@@ -4,144 +4,97 @@ let vidasJugador = 3;
 let vidasEnemigo = 3;
 
 function iniciarJuego() {
-  let botonEleccion = document.getElementById("ELEGIR");
-  botonEleccion.addEventListener("click", seleccionarElemento);
+  document
+    .getElementById("boton-piedra")
+    .addEventListener("click", () => seleccionarAtaque("Piedra"));
+  document
+    .getElementById("boton-papel")
+    .addEventListener("click", () => seleccionarAtaque("Papel"));
+  document
+    .getElementById("boton-tijera")
+    .addEventListener("click", () => seleccionarAtaque("Tijera"));
+  document
+    .getElementById("boton-lagarto")
+    .addEventListener("click", () => seleccionarAtaque("Lagarto"));
+  document
+    .getElementById("boton-spock")
+    .addEventListener("click", () => seleccionarAtaque("Spock"));
 
-  let botonPiedra = document.getElementById("boton-piedra");
-  botonPiedra.addEventListener("click", ataquePiedra);
-  let botonPapel = document.getElementById("boton-papel");
-  botonPapel.addEventListener("click", ataquePapel);
-  let botonTijera = document.getElementById("boton-tijera");
-  botonTijera.addEventListener("click", ataqueTijera);
-
-  let botonReiniciar = document.getElementById("boton-reiniciar");
-  botonReiniciar.addEventListener("click", reiniciarJuego);
+  document
+    .getElementById("btn-reiniciar")
+    .addEventListener("click", reiniciarJuego);
 }
 
-function seleccionarElemento() {
-  let inputAquashi = document.getElementById("Aquashi");
-  let inputTierrashi = document.getElementById("Tierrashi");
-  let inputFuegashi = document.getElementById("Fuegashi");
-  let spanMascotaJugador = document.getElementById("mascota-jugador");
-
-  if (inputAquashi.checked) {
-    spanMascotaJugador.innerHTML = "Aquashi";
-  } else if (inputTierrashi.checked) {
-    spanMascotaJugador.innerHTML = "Tierrashi";
-  } else if (inputFuegashi.checked) {
-    spanMascotaJugador.innerHTML = "Fuegashi";
-  } else {
-    alert("selecciona una mascota");
-  }
-
-  seleccionarMascotaEnemigo();
+function seleccionarAtaque(ataque) {
+  ataqueJugador = ataque;
+  document.getElementById("jugador").innerText = ataque;
+  seleccionarAtaqueEnemigo();
 }
 
-function seleccionarMascotaEnemigo() {
-  let mascotaAleatoria = aleatorio(1, 3);
-  let spanMascotaEnemigo = document.getElementById("mascota-enemigo");
-
-  if (mascotaAleatoria == 1) {
-    spanMascotaEnemigo.innerHTML = "Aquashi";
-  } else if (mascotaAleatoria == 2) {
-    spanMascotaEnemigo.innerHTML = "Tierrashi";
-  } else {
-    spanMascotaEnemigo.innerHTML = "Fuegashi";
-  }
-}
-
-function ataquePiedra() {
-  ataqueJugador = "FUEGO";
-  ataqueAleatorioEnemigo();
-}
-function ataquePapel() {
-  ataqueJugador = "AGUA";
-  ataqueAleatorioEnemigo();
-}
-function ataqueTijera() {
-  ataqueJugador = "TIERRA";
-  ataqueAleatorioEnemigo();
-}
-
-function ataqueAleatorioEnemigo() {
-  let ataqueAleatorio = aleatorio(1, 3);
-
-  if (ataqueAleatorio == 1) {
-    ataqueEnemigo = "FUEGO";
-  } else if (ataqueAleatorio == 2) {
-    ataqueEnemigo = "AGUA";
-  } else {
-    ataqueEnemigo = "TIERRA";
-  }
-
+function seleccionarAtaqueEnemigo() {
+  const ataques = ["Piedra", "Papel", "Tijera", "Lagarto", "Spock"];
+  ataqueEnemigo = ataques[aleatorio(0, ataques.length - 1)];
+  document.getElementById("enemigo").innerText = ataqueEnemigo;
   combate();
 }
-function combate() {
-  let spanVidasJugador = document.getElementById("vidas-jugador");
-  let spanVidasEnemigo = document.getElementById("vidas-enemigo");
 
-  if (ataqueEnemigo == ataqueJugador) {
+function combate() {
+  if (ataqueJugador === ataqueEnemigo) {
     crearMensaje("EMPATE");
-  } else if (ataqueJugador == "FUEGO" && ataqueEnemigo == "TIERRA") {
+  } else if (
+    (ataqueJugador === "Piedra" &&
+      (ataqueEnemigo === "Tijera" || ataqueEnemigo === "Lagarto")) ||
+    (ataqueJugador === "Papel" &&
+      (ataqueEnemigo === "Piedra" || ataqueEnemigo === "Spock")) ||
+    (ataqueJugador === "Tijera" &&
+      (ataqueEnemigo === "Papel" || ataqueEnemigo === "Lagarto")) ||
+    (ataqueJugador === "Lagarto" &&
+      (ataqueEnemigo === "Papel" || ataqueEnemigo === "Spock")) ||
+    (ataqueJugador === "Spock" &&
+      (ataqueEnemigo === "Piedra" || ataqueEnemigo === "Tijera"))
+  ) {
     crearMensaje("GANASTE");
     vidasEnemigo--;
-    spanVidasEnemigo.innerHTML = vidasEnemigo;
-  } else if (ataqueJugador == "AGUA" && ataqueEnemigo == "FUEGO") {
-    crearMensaje("GANASTE");
-    vidasEnemigo--;
-    spanVidasEnemigo.innerHTML = vidasEnemigo;
-  } else if (ataqueJugador == "TIERRA" && ataqueEnemigo == "AGUA") {
-    crearMensaje("GANASTE");
-    vidasEnemigo--;
-    spanVidasEnemigo.innerHTML = vidasEnemigo;
+    document.getElementById("vidas-enemigo").innerText = vidasEnemigo;
   } else {
-    crearMensaje(" PERDISTE");
+    crearMensaje("PERDISTE");
     vidasJugador--;
-    spanVidasJugador.innerHTML = vidasJugador;
+    document.getElementById("vidas-jugador").innerText = vidasJugador;
   }
 
   revisarVidas();
 }
 
 function revisarVidas() {
-  if (vidasEnemigo == 0) {
-    crearMensajeFinal("FELICITACIONES!! GANASTE🏆");
-  } else if (vidasJugador == 0) {
-    crearMensajeFinal("LO LAMENTO, PERDISTE 😒");
+  if (vidasEnemigo === 0) {
+    crearMensajeFinal("¡FELICIDADES! GANASTE 🎉");
+  } else if (vidasJugador === 0) {
+    crearMensajeFinal("LO LAMENTO, PERDISTE 😢");
+  }
+  var mensajes = document.getElementById("mensajes");
+  if (mensajes.innerText != "") {
+    mensajes.classList.remove("d-none");
+  } else {
+    mensajes.classList.add("d-none");
   }
 }
 
 function crearMensaje(resultado) {
   let sectionMensajes = document.getElementById("mensajes");
-
   let parrafo = document.createElement("p");
-
-  parrafo.innerHTML =
-    "tu mascota atacó con" +
-    ataqueJugador +
-    ", la mascota del enemigo atacó con" +
-    ataqueEnemigo +
-    "-" +
-    resultado;
-
+  parrafo.innerText = `Tu ataque: ${ataqueJugador}, Ataque enemigo: ${ataqueEnemigo} - ${resultado}`;
   sectionMensajes.appendChild(parrafo);
 }
 
 function crearMensajeFinal(resultadoFinal) {
   let sectionMensajes = document.getElementById("mensajes");
-
   let parrafo = document.createElement("p");
-
-  parrafo.innerHTML = resultadoFinal;
-
+  parrafo.innerText = resultadoFinal;
   sectionMensajes.appendChild(parrafo);
 
-  let botonFuego = document.getElementById("boton-fuego");
-  botonFuego.disabled = true;
-  let botonAgua = document.getElementById("boton-agua");
-  botonAgua.disabled = true;
-  let botonTierra = document.getElementById("boton-tierra");
-  botonTierra.disabled = true;
+  document
+    .querySelectorAll("button[id^='boton-']")
+    .forEach((boton) => (boton.disabled = true));
 }
 
 function reiniciarJuego() {

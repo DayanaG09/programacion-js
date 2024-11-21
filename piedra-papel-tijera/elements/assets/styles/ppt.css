@@ -1,0 +1,171 @@
+.img {
+    max-width: 30%; 
+    height: auto; 
+    margin: 1rem auto; 
+    display: flex; 
+    border: 1px solid #5f9982; 
+    border-radius: 8px; 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); 
+  }
+  
+  
+ body {
+    background-color: #c8dfd2;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    background: linear-gradient(45deg, rgb(120, 187, 120), rgb(155, 224, 155), rgba(182, 255, 182, 0.767));
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    overflow-y: auto; 
+    scrollbar-width: 0px !important;
+  }
+
+  
+  .container {
+    margin-bottom: 3rem;
+  }
+  
+  .header {
+    background: linear-gradient(45deg, rgb(120, 187, 120), rgb(155, 224, 155), rgba(182, 255, 182, 0.767));
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #42351c;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    position: inherit;
+    display: block;
+  }
+ 
+  
+  .header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+
+  h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+  
+  #seleccionar-ataque button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  #seleccionar-ataque button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  #boton-piedra {
+    background-color: #ffffff;
+    border-color: #dc3545;
+    color: #e70000;
+  }
+  
+  #boton-piedra:hover {
+    background-color: #c823339a;
+    border-color: #bd2130;
+  }
+  
+  #boton-papel {
+    background-color: #ffffff;
+    border-color: #007bff;
+    color: #006efd;
+  }
+  
+  #boton-papel:hover {
+    background-color: #0057b36e;
+    border-color: #004085;
+  }
+  
+  #boton-tijera {
+    background-color: #ffffff;
+    border-color: #7429ff;
+    color: #82019c;
+  }
+  
+  #boton-tijera:hover {
+    background-color: #f03ce754;
+    border-color: #eeeeee;
+  }
+
+  #boton-lagarto{
+    background-color: #ffffff;
+    border-color: #2de000;
+    color: #00a31b;
+  }
+
+  #boton-lagarto:hover {
+    background-color: #21883767;
+    border-color: #1e7e34;
+  }
+
+  #boton-spock{
+    background-color: #ffffff;
+    border-color: #ff8800;
+    color: #cc7400;
+  }
+
+  #boton-spock:hover {
+    background-color: #f56e0091;
+    border-color: #db8400;
+  }
+  #mensajes {
+    background: linear-gradient(45deg, rgb(120, 187, 120), rgb(155, 224, 155), rgba(182, 255, 182, 0.767));
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  #mensajes p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 0.5rem 0;
+  }
+  
+  #btn-reiniciar {
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+  }
+  
+  #btn-reiniciar:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+  }
+  
+  @media (max-width: 576px) {
+    .header h1 {
+      font-size: 1.8rem;
+    }
+  
+    #seleccionar-ataque button {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+    }
+  
+    #btn-reiniciar {
+      font-size: 0.9rem;
+    }
+  }
+  

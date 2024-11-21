@@ -1,0 +1,87 @@
+
+body{
+    background: linear-gradient(45deg, rgb(120, 187, 120), rgb(155, 224, 155), rgba(182, 255, 182, 0.767));
+    flex-direction: column;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: ""; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("..//images/ppt_fondo.webp");
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    filter: blur(5px); 
+    z-index: -1; 
+}
+
+div{
+    margin-bottom: 10px;
+    margin: 10px;
+    padding: 60px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, rgb(120, 187, 120), rgb(155, 224, 155), rgba(182, 255, 182, 0.767));
+    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(45deg, rgb(120, 187, 120), rgb(155, 224, 155), rgba(182, 255, 182, 0.767));
+    flex-direction: column;
+    box-shadow: black;
+    font-size: 14px;
+    cursor: pointer; 
+}
+
+button:hover{
+    background-color: black;
+    border-color: black;
+    flex-direction: column;
+}
+
+input:focus{
+    border-color: red;
+}
+
+registro-section{
+    margin: 10px;
+    padding: 60px;
+    border-radius: 8px;
+    background-color: #c3dfd7;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+registro-section:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
